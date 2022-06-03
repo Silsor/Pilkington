@@ -118,15 +118,23 @@ AFRAME.registerComponent("hide-in-ar-mode", {
   var opened = false;
   function animateModel()
   {
+    console.log(document.getElementById("model-rozkladany").object3D);
     console.log("animate");
         if (!opened)
         {
             opened = true;
             document.getElementById("model-rozkladany").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
+            document.getElementById("szyba-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
+            document.getElementById("szyba-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
         } else
         {
             opened = false;
-            document.getElementById("model-rozkladany").setAttribute("animation-mixer", 'timeScale: 1.0; clip: z³o¿enie;');
+            let model = document.getElementById("model-rozkladany");
+            let clipName = model.object3D.children[0].animations[1].name;
+            console.log(clipName);
+            document.getElementById("model-rozkladany").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
+            document.getElementById("szyba-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
+            document.getElementById("szyba-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
         }
   }
 
