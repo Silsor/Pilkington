@@ -108,11 +108,11 @@ AFRAME.registerComponent("hide-in-ar-mode", {
   //--- Events for 2D elements
   //----------------------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', function(e) {
-    const toggle = document.getElementById('toggle');
+    /*const toggle = document.getElementById('toggle');
 
     toggle.addEventListener('click', () =>
       document.getElementById("info").classList.toggle('show-info')
-    ); 
+    ); */
   });
 
   var opened = false;
