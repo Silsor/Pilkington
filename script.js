@@ -118,7 +118,7 @@ AFRAME.registerComponent("hide-in-ar-mode", {
   var opened = false;
   function animateModel()
   {
-    console.log(document.getElementById("model-rozkladany").object3D);
+    console.log(document.getElementById("strzalka-energia-cieplna").object3D);
     console.log("animate");
         if (!opened)
         {
@@ -126,6 +126,10 @@ AFRAME.registerComponent("hide-in-ar-mode", {
             document.getElementById("model-rozkladany").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
             document.getElementById("szyba-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
             document.getElementById("szyba-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
+            document.getElementById("slonce-animowane").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
+            document.getElementById("strzalka-energia-sloneczna-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
+            document.getElementById("strzalka-energia-sloneczna-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
+            document.getElementById("strzalka-energia-cieplna").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
         } else
         {
             opened = false;
@@ -135,6 +139,10 @@ AFRAME.registerComponent("hide-in-ar-mode", {
             document.getElementById("model-rozkladany").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
             document.getElementById("szyba-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
             document.getElementById("szyba-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
+            document.getElementById("slonce-animowane").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
+            document.getElementById("strzalka-energia-sloneczna-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
+            document.getElementById("strzalka-energia-sloneczna-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
+            document.getElementById("strzalka-energia-cieplna").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
         }
   }
 
