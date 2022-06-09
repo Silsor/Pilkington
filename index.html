@@ -35,7 +35,9 @@
     <script src="components/Animator.js"></script>
     <script src="components/OrbitControls.js"></script>
     <script src="components/ScenarioElement.js"></script>
-    <script src="components/Description.js"></script>
+    <script src="components/ModelPart.js"></script>
+    <script src="components/PointedModelPart.js"></script>
+    <script src="components/PartName.js"></script>
 
     <script src="script.js"></script>
 
@@ -157,7 +159,6 @@
           scenario-element="sceneNumber: 2"
           animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
           visible="false"
-          class="clickable"
         ></a-entity>
 
         <a-entity
@@ -168,7 +169,7 @@
           scenario-element="sceneNumber: 2"
           animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
           visible="false"
-          description="info:"
+          model-part
         ></a-entity>
         
         <a-entity
@@ -197,6 +198,7 @@
           gltf-model="#grzejnik-model"
           visible="true"
         ></a-entity>
+
         <a-entity
           id="model-rozkladany"
           position="0 0 0"
@@ -204,8 +206,9 @@
           gltf-model="#model-rozkladany-model"
           animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
           class="clickable"
-          description="info:"
+          model-part
         ></a-entity>
+
         <a-entity
           id="szyba-scenariusz1"
           position="0 0 0"
@@ -214,7 +217,7 @@
           animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
           scenario-element="sceneNumber: 1"
           class="clickable"
-          description="info:"
+          model-part
         ></a-entity>
         
 

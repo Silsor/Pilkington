@@ -20,14 +20,18 @@ AFRAME.registerComponent('description', {
         info: {}, 
         objectInfo: {}
     },
+
     init: function(){
     //console.log("init from " + this.el.id);
+
+    createInfoPlane();
+    console.log(this.infoPlane);
 
     function clickHandlerShow (event) {
         console.log("desc clicked");
         //if (showing) hideInfo(currentSelected);
-        event.target.setAttribute("description", 'name: '+event.detail.intersection.object.name)
-        showInfo(event.detail.intersection.object);
+        event.target.setAttribute("description", 'name: '+ event.detail.intersection.object.name)
+        showInfo(this);
     }
 
     this.el.addEventListener('click', clickHandlerShow);
@@ -38,7 +42,7 @@ AFRAME.registerComponent('description', {
             {
                 showing = true;
                 //currentSelected = object.data.objectInfo;
-                //console.log(object);
+                console.log(object.data);
                 if (object.data.objectInfo) object.data.objectInfo.object3D.visible = true; 
                 if (object.el.sceneEl.is('vr-mode') || object.el.sceneEl.is('ar-mode'))
                 {
@@ -57,19 +61,9 @@ AFRAME.registerComponent('description', {
             infoObj.classList.remove("clickable");
             console.log("hide1: " +currentSelected.id);
         }
-    },
-  
-    // Create or update the line geometry.
-    update: function(oldData){  
-        if(this.data.name != oldData.name && this.data.name != ""){
-            
-            //console.log("update from " + this.data.name);
-            let clearPartName = this.data.name.split("_");
-            let partName = clearPartName[0].replaceAll('-', ' ');
-            
-            // show part name
-            let text = `${partName.toUpperCase()}` + "\n" + this.data.info;
-            let match = text.match(/.{1,18}/g); //how many lines
+
+        function createInfoPlane()
+        {
             const geometry = new THREE.PlaneGeometry(1.5, 0.08 * match.length);
             const loader = new THREE.TextureLoader();
 
@@ -105,8 +99,26 @@ AFRAME.registerComponent('description', {
             entityEl.object3D.position.set(0, 0.015, -0.05);
          
             this.data.objectInfo = entityEl;
+            console.log(this.data.objectInfo);
             if (!(this.el.sceneEl.is('vr-mode') || this.el.sceneEl.is('ar-mode'))){
                 this.data.objectInfo.addEventListener('click', clickHandlerHide);}
+
+                this.infoPlane = entityEl;
+        }
+    },
+  
+    // Create or update the line geometry.
+    update: function(oldData){  
+        if(this.data.name != oldData.name && this.data.name != ""){
+            
+            //console.log("update from " + this.data.name);
+            let clearPartName = this.data.name.split("_");
+            let partName = clearPartName[0].replaceAll('-', ' ');
+            
+            // show part name
+            let text = `${partName.toUpperCase()}` + "\n" + this.data.info;
+            let match = text.match(/.{1,18}/g); //how many lines
+            
         }
 
         function clickHandlerHide (event) {
