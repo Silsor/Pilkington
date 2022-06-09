@@ -4,20 +4,21 @@
   
   AFRAME.registerComponent('animator', {
     schema: {
-    playing: {default: false}
+    speed: {default: 1}
     },
 
     init: function () {
         
-        this.animationHandler = 
-        function () {
-            console.log("animationHandler");
-            this.el.setAttribute("animation-mixer", 'timeScale: 1.00');
-        }
+        this.clock = new THREE.Clock();
+        this.el.addEventListener('model-loaded', () => 
+        {   
+            this.model = this.el.getObject3D('mesh').children[0];
+        });
     },
 
-    update: function () {
-        console.log("update");
+    tick: function () {
+        let delta = this.clock.getDelta();
+        if (this.model) this.model.rotation.z += this.data.speed * delta
     }
 
   });

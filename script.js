@@ -118,8 +118,6 @@ AFRAME.registerComponent("hide-in-ar-mode", {
   var opened = false;
   function animateModel()
   {
-    console.log(document.getElementById("strzalka-energia-cieplna").object3D);
-    console.log("animate");
         if (!opened)
         {
             opened = true;
