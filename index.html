@@ -81,12 +81,12 @@
         ></a-asset-item>
         <a-asset-item
           id="model-rozkladany-model"
-          src="assets/Pilkington-powłoki-v3.5-wspolne-animowane-obiekty.glb" 
+          src="assets/Pilkington-powłoki-v3.6-wspolne-animowane-obiekty.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="grzejnik-model"
-          src="assets/Pilkington-powłoki-v3.5-wspolne-statyczne.glb" 
+          src="assets/Pilkington-powłoki-v3.6-wspolne-statyczne.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
@@ -204,6 +204,7 @@
           class="clickable"
           model-part
           modify-model="envMapImg: #sky-image"
+          animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
         ></a-entity>
 
         <a-entity

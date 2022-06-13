@@ -128,6 +128,7 @@ AFRAME.registerComponent("hide-in-ar-mode", {
             document.getElementById("strzalka-energia-sloneczna-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
             document.getElementById("strzalka-energia-sloneczna-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
             document.getElementById("strzalka-energia-cieplna").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
+            document.getElementById("grzejnik").setAttribute("animation-mixer", 'timeScale: 1.0; clip: rozbicie;');
         } else
         {
             opened = false;
@@ -141,6 +142,7 @@ AFRAME.registerComponent("hide-in-ar-mode", {
             document.getElementById("strzalka-energia-sloneczna-scenariusz1").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
             document.getElementById("strzalka-energia-sloneczna-scenariusz2").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
             document.getElementById("strzalka-energia-cieplna").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
+            document.getElementById("grzejnik").setAttribute("animation-mixer", 'timeScale: 1.0; clip:'+clipName+'');
         }
   }
 
