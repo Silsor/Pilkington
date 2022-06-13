@@ -34,7 +34,6 @@
     <script src="components/AnimateTexture.js"></script>
     <script src="components/Animator.js"></script>
     <script src="components/OrbitControls.js"></script>
-    <script src="components/ScenarioElement.js"></script>
     <script src="components/ModelPart.js"></script>
     <script src="components/PointedModelPart.js"></script>
     <script src="components/PartName.js"></script>
@@ -50,42 +49,42 @@
       <a-assets timeout="30000">
         <a-asset-item
           id="strzalka-energia-sloneczna-scenariusz1-model"
-          src="assets/Pilkington-powłoki-v3.3-scenariusz1-animowane-tekstury.glb" 
+          src="assets/Pilkington-powłoki-v3.5-scenariusz1-animowane-tekstury.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="szyba-scenariusz1-model"
-          src="assets/Pilkington-powłoki-v3.3-scenariusz1-statyczne.glb" 
+          src="assets/Pilkington-powłoki-v3.5-scenariusz1-statyczne.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="strzalka-energia-sloneczna-scenariusz2-model"
-          src="assets/Pilkington-powłoki-v3.3-scenariusz2-animowane-tekstury.glb" 
+          src="assets/Pilkington-powłoki-v3.5-scenariusz2-animowane-tekstury.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="szyba-scenariusz2-model"
-          src="assets/Pilkington-powłoki-v3.3-scenariusz2-statyczne.glb" 
+          src="assets/Pilkington-powłoki-v3.5-scenariusz2-statyczne.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="slonce-animowane-model"
-          src="assets/Pilkington-powłoki-v3.4-slonce-animowane-obiekty.glb" 
+          src="assets/Pilkington-powłoki-v3.5-slonce-animowane-obiekty.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="strzalka-energia-cieplna-model"
-          src="assets/Pilkington-powłoki-v3.3-wspolne-animowane-tekstury.glb" 
+          src="assets/Pilkington-powłoki-v3.5-wspolne-animowane-tekstury.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="model-rozkladany-model"
-          src="assets/Pilkington-powłoki-v3.3-wspolne-animowane-obiekty.glb" 
+          src="assets/Pilkington-powłoki-v3.5-wspolne-animowane-obiekty.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <a-asset-item
           id="grzejnik-model"
-          src="assets/Pilkington-powłoki-v3.3-wspolne-statyczne.glb" 
+          src="assets/Pilkington-powłoki-v3.5-wspolne-statyczne.glb" 
           crossorigin="anonymous"
         ></a-asset-item>
         <img
@@ -146,7 +145,6 @@
           scale="2 2 2"
           gltf-model="#strzalka-energia-sloneczna-scenariusz1-model"
           animate-texture="speed: 0.4"
-          scenario-element="sceneNumber: 1"
           animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
         ></a-entity>
 
@@ -156,7 +154,6 @@
           scale="2 2 2"
           gltf-model="#strzalka-energia-sloneczna-scenariusz2-model"
           animate-texture="speed: 0.4"
-          scenario-element="sceneNumber: 2"
           animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
           visible="false"
         ></a-entity>
@@ -166,7 +163,6 @@
           position="0 0 0"
           scale="2 2 2"
           gltf-model="#szyba-scenariusz2-model"
-          scenario-element="sceneNumber: 2"
           animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
           visible="false"
           model-part
@@ -216,8 +212,7 @@
           position="0 0 0"
           scale="2 2 2"
           gltf-model="#szyba-scenariusz1-model"
-          animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"  
-          scenario-element="sceneNumber: 1"
+          animation-mixer="timeScale: 0; clip: rozbicie; loop: once; clampWhenFinished: true"
           class="clickable"
           model-part
         ></a-entity>
