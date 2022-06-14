@@ -55,39 +55,37 @@ AFRAME.registerComponent("hide-in-ar-mode", {
   AFRAME.registerComponent('ar-mode-setup', {
   // Set camera position while in AR mode.
     init: function (){
- 
-      let modelDOM = document.getElementById("modelDOM");
+      let model = document.getElementById("modelDOM");
       let cursor = document.getElementById("cursor");
       let camera = document.getElementById("camera");
         
       this.el.sceneEl.addEventListener('enter-vr', (ev) => {
-        this.el.sceneEl.removeAttribute("cursor");
-  
-        cursor.setAttribute('visible', true);
-        cursor.setAttribute('cursor','fuse: true; fuseTimeout: 1500');
-        cursor.setAttribute('animation__click', "property: scale; startEvents: click; easing: easeInOutCubic; dur: 250; from: 0.8 0.8 0.8; to: 1.0 1.0 1.0 ");
-        //this.el.emit('click', {}, false);
-        cursor.setAttribute('raycaster', "enabled: true");
-        //Transformations are applied to entities in this order:
-        //modelDOM.object3D.scale.set(0.8, 0.8, 0.8);
-        //modelDOM.object3D.rotation.set(0, 30, 0);
-        //modelDOM.object3D.position.set(0.5, 0, -1.5);
-
-        document.querySelector('a-sky').setAttribute('visible', true);
-  
-        if (this.el.sceneEl.is('ar-mode')) {
-            document.querySelector('a-sky').setAttribute('visible', false);
-        }
+        
+            console.log("enter vr");
+        if (this.el.sceneEl.is('ar-mode'))
+            model.setAttribute('position', {x: 0, y: 1, z: -0.5});
+        else
+            model.setAttribute('position', {x: 0, y: 1.4, z: -0.5});
+            camera.removeAttribute('cursor');
+            camera.setAttribute('raycaster','enabled: false');
+            cursor.setAttribute('cursor', 'fuse: true');
+            cursor.setAttribute('cursor','rayOrigin: entity');
+            cursor.setAttribute('raycaster','enabled: true');
+            cursor.object3D.visible = true;
       });
               
       
       this.el.sceneEl.addEventListener('exit-vr', (ev) => {
-        this.el.sceneEl.setAttribute('cursor', 'rayOrigin', 'mouse');  
-        cursor.setAttribute('visible', false);
-        cursor.setAttribute('raycaster', "enabled: false");
-           
-        document.querySelector('a-sky').setAttribute('visible', true);
-       
+        //model.setAttribute('scale', '1 1 1');
+        model.object3D.position.set( 0, 0, 0);
+        model.setAttribute('position', {x: 0, y: 0, z: 0});
+        cursor.removeAttribute('cursor');
+        cursor.setAttribute('raycaster','enabled: false');
+        camera.setAttribute('cursor', 'fuse: false');
+        camera.setAttribute('cursor','rayOrigin: mouse');
+        camera.setAttribute('raycaster','enabled: true');
+        camera.setAttribute('position', {x: 0.4, y: 0.2, z: 0.6});
+        cursor.object3D.visible = false;
       });
     }
   });
@@ -113,6 +111,10 @@ AFRAME.registerComponent("hide-in-ar-mode", {
     toggle.addEventListener('click', () =>
       document.getElementById("info").classList.toggle('show-info')
     ); */
+    console.log(AFRAME.utils.device.isMobile());
+    //if (AFRAME.utils.device.isMobile())
+        //document.getElementById("modelDOM").setAttribute('position', {x: 0, y: 1, z: 0});
+        document.getElementById("camera").setAttribute('position', {x: 0.4, y: 0.2, z: 0.6});
   });
 
   var opened = false;

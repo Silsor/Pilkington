@@ -47,6 +47,7 @@
   <body>
     <a-scene color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights: true; antialias: true; logarithmicDepthBuffer: false; sortObjects: true;"
+    ar-mode-setup
     >
       <a-assets timeout="30000">
         <a-asset-item
@@ -244,7 +245,7 @@
   </a-entity>
   
   <!-- 360 panorama-->
-  <a-sky material="#sky-image" geometry="radius: 10" scale="1 1 1" position="0 1.6 1" rotation="0 90 0"></a-sky>
+  <a-sky material="#sky-image" geometry="radius: 10" scale="1 1 1" position="0 1.6 1" rotation="0 90 0" hide-in-ar-mode></a-sky>
     
 
   </a-scene>
