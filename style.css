@@ -76,7 +76,7 @@ div#info.show-info {
 
 div#buttons {
 	position: absolute;
-	bottom: 20%;
+	bottom: 10%;
 	width: 100%;
 	padding: 0;
 	text-align: center;
@@ -85,7 +85,7 @@ div#buttons {
 .button {
   border: none;
   color: black;
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
